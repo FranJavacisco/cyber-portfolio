@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 // Importa los estilos globales si los tienes
-import './styles/globals.css';
+import './styles/index.css';
 
 const App = () => {
   // Efecto para manejar el smooth scroll
