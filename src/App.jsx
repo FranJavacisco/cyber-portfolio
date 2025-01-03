@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Importa los estilos globales si los tienes
+import './styles/globals.css';
+
+const App = () => {
+  // Efecto para manejar el smooth scroll
+  useEffect(() => {
+    // Manejo del scroll suave para los enlaces de navegación
+    const handleSmoothScroll = (e) => {
+      if (e.target.hash) {
+        e.preventDefault();
+        const element = document.querySelector(e.target.hash);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }
+    };
+
+    // Agregar evento a todos los enlaces internos
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', handleSmoothScroll);
+    });
+
+    // Cleanup
+    return () => {
+      links.forEach(link => {
+        link.removeEventListener('click', handleSmoothScroll);
+      });
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="bg-black text-white overflow-x-hidden">
+      {/* Capa de ruido para efecto cyberpunk */}
+      <div className="fixed inset-0 bg-noise opacity-5 pointer-events-none" />
+      
+      {/* Contenido principal */}
+      <main className="relative">
+        <Navbar />
+        
+        {/* Secciones principales */}
+        <div className="space-y-20">
+          <section id="home">
+            <Hero />
+          </section>
 
-export default App
+          <section id="about">
+            <About />
+          </section>
+
+          <section id="skills">
+            <Skills />
+          </section>
+
+          <section id="projects">
+            <Projects />
+          </section>
+
+          <section id="contact">
+            <Contact />
+          </section>
+        </div>
+
+        <Footer />
+      </main>
+    </div>
+  );
+};
+
+export default App;
