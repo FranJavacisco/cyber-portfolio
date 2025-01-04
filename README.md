@@ -1,6 +1,7 @@
 # 🌐 Cyber Portfolio
 
-![Portfolio Preview](public/project7.jpg)
+![Captura de pantalla 2025-01-04 011455](https://github.com/user-attachments/assets/b4891c1a-ade5-4e9a-a34e-aac6f8e7e5c2)
+
 
 Un portafolio personal con estética cyberpunk, construido con React y Tailwind CSS. Presenta proyectos de ciberseguridad y desarrollo web con una interfaz moderna y animaciones fluidas.
 
