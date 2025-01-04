@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  Mail, 
-  GitHub, 
-  Linkedin, 
-  Twitter, 
-  Send,
-  MessageCircle,
-  User,
-  AtSign
-} from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
 
@@ -40,32 +29,10 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
-        subject: '',
         message: ''
       });
     }, 2000);
   };
-
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: <GitHub className="w-6 h-6" />,
-      url: 'https://github.com/yourusername',
-      color: 'hover:text-pink-500'
-    },
-    {
-      name: 'LinkedIn',
-      icon: <Linkedin className="w-6 h-6" />,
-      url: 'https://linkedin.com/in/yourusername',
-      color: 'hover:text-blue-500'
-    },
-    {
-      name: 'Twitter',
-      icon: <Twitter className="w-6 h-6" />,
-      url: 'https://twitter.com/yourusername',
-      color: 'hover:text-purple-500'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-black py-20" id="contact">
@@ -87,54 +54,31 @@ const Contact = () => {
           <div className="bg-gray-900/50 backdrop-blur-xl rounded-xl p-8 border border-gray-800">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
-              <div className="relative">
+              <div>
                 <label className="text-gray-300 mb-2 block">Your Name</label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="John Doe"
-                  />
-                  <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white"
+                  placeholder="Gorilla"
+                />
               </div>
 
               {/* Email Input */}
-              <div className="relative">
-                <label className="text-gray-300 mb-2 block">Your Email</label>
-                <div className="relative">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="john@example.com"
-                  />
-                  <AtSign className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
-                </div>
-              </div>
-
-              {/* Subject Input */}
               <div>
-                <label className="text-gray-300 mb-2 block">Subject</label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="Project Discussion"
-                  />
-                  <MessageCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
-                </div>
+                <label className="text-gray-300 mb-2 block">Your Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white"
+                  placeholder="gorilla@example.com"
+                />
               </div>
 
               {/* Message Input */}
@@ -146,30 +90,28 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white"
                   placeholder="Your message here..."
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-colors duration-300"
               >
                 {isSubmitting ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+                  <div className="flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2" />
+                    Sending...
+                  </div>
                 ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
+                  'Send Message'
                 )}
               </button>
 
-              {/* Status Message */}
               {submitStatus === 'success' && (
-                <div className="text-green-500 text-center">
+                <div className="text-green-500 text-center mt-4">
                   Message sent successfully!
                 </div>
               )}
@@ -178,39 +120,13 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
-            {/* Info Card */}
             <div className="bg-gray-900/50 backdrop-blur-xl rounded-xl p-8 border border-gray-800">
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <Mail className="w-6 h-6 text-pink-500 mt-1" />
-                  <div>
-                    <h4 className="text-white font-medium">Email</h4>
-                    <a href="mailto:contact@example.com" className="text-gray-400 hover:text-pink-500 transition-colors">
-                      contact@example.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="bg-gray-900/50 backdrop-blur-xl rounded-xl p-8 border border-gray-800">
-              <h3 className="text-2xl font-bold text-white mb-6">Connect With Me</h3>
-              
-              <div className="flex gap-6">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-gray-400 ${link.color} transition-colors duration-300 transform hover:scale-110`}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
+              <div>
+                <h4 className="text-white font-medium">Email</h4>
+                <a href="mailto:contact@example.com" className="text-gray-400 hover:text-pink-500 transition-colors">
+                  contact@example.com
+                </a>
               </div>
             </div>
 

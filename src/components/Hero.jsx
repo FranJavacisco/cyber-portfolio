@@ -6,11 +6,16 @@ const Hero = () => {
     <div className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background with cyberpunk effect */}
       <div className="absolute inset-0 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 animate-gradient" />
-        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-30 bg-cover bg-center" />
-        <div className="absolute inset-0 bg-grid-white/10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 animate-gradient" />
+        {/* Dark overlay for better contrast */}
+        <div className="absolute inset-0 bg-black opacity-40" />
+        <div className="absolute inset-0 bg-[url('/hero.jpg')] opacity-50 bg-cover bg-center" />
+        <div
+          className="absolute inset-0 bg-grid-white/10"
+          style={{
+            backgroundImage: `url("/background-image.jpg")`,
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -27,9 +32,7 @@ const Hero = () => {
                   Securing
                 </span>
                 <br />
-                <span className="text-white">
-                  The Digital Future
-                </span>
+                <span className="text-white">The Digital Future</span>
               </h1>
               <p className="text-gray-400 text-lg md:text-xl max-w-lg">
                 Specializing in secure front-end development and cybersecurity solutions for modern web applications.
@@ -81,12 +84,15 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Main visual - Code Matrix effect */}
-            <div className="relative w-full aspect-square rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 backdrop-blur-3xl border border-white/10 p-8">
+            {/* Main visual - Hero Image in Circle */}
+            <div className="relative w-full aspect-square rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 backdrop-blur-3xl border border-white/10 p-4">
               <div className="absolute inset-0 rounded-full overflow-hidden">
-                <div className="w-full h-full bg-black/50 flex items-center justify-center">
-                  <div className="text-green-500 font-mono text-sm opacity-80 matrix-rain" />
-                </div>
+                <img
+                  src="/hero.jpg"
+                  alt="Hero"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-blue-500/10" />
               </div>
             </div>
           </div>

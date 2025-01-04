@@ -5,7 +5,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Navigation items
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -14,19 +13,27 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  // Handle scroll effect
   useEffect(() => {
+    // Detectar el desplazamiento para cambiar el estado "isScrolled"
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
+    // Añadir el evento de desplazamiento
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
-    }`}>
+    <nav
+      className={`navbar fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -37,7 +44,7 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Navegación en escritorio */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
@@ -54,22 +61,19 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Botón del menú móvil */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
               className="text-gray-300 hover:text-pink-500 transition-colors duration-300"
             >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Navegación móvil */}
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg">
             <div className="px-4 py-4 space-y-4">
