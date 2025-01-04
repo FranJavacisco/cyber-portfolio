@@ -13,7 +13,7 @@ const Hero = () => {
         <div
           className="absolute inset-0 bg-grid-white/10"
           style={{
-            backgroundImage: `url("/background-image.jpg")`,
+            backgroundImage: `url("background-image.jpg")`,
           }}
         />
       </div>
@@ -88,7 +88,7 @@ const Hero = () => {
             <div className="relative w-full aspect-square rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 backdrop-blur-3xl border border-white/10 p-4">
               <div className="absolute inset-0 rounded-full overflow-hidden">
                 <img
-                  src="/hero.jpg"
+                  src="hero.jpg"
                   alt="Hero"
                   className="w-full h-full object-cover"
                 />
