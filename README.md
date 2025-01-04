@@ -1,6 +1,12 @@
 # 🌐 Cyber Portfolio
 
 ![Captura de pantalla 2025-01-04 011455](https://github.com/user-attachments/assets/b4891c1a-ade5-4e9a-a34e-aac6f8e7e5c2)
+![Captura de pantalla 2025-01-04 011537](https://github.com/user-attachments/assets/f7658be7-1960-4656-b1de-4ecdec4c1bd0)
+![Captura de pantalla 2025-01-04 011601](https://github.com/user-attachments/assets/9e38a035-0b6a-45c9-9fc5-bd60ebbd3991)
+![Captura de pantalla 2025-01-04 011818](https://github.com/user-attachments/assets/ce750d9b-54db-40cc-a372-ca936ad6ee3c)
+![Captura de pantalla 2025-01-04 011844](https://github.com/user-attachments/assets/1ecfca28-3d0b-4ab8-990f-0a8811cc797b)
+![Captura de pantalla 2025-01-04 011919](https://github.com/user-attachments/assets/1181b7c5-a5ee-499a-b8da-9dd0f9b39aad)
+![Captura de pantalla 2025-01-04 011938](https://github.com/user-attachments/assets/c768bdbb-f477-4ece-a023-db21b8edff4c)
 
 
 Un portafolio personal con estética cyberpunk, construido con React y Tailwind CSS. Presenta proyectos de ciberseguridad y desarrollo web con una interfaz moderna y animaciones fluidas.
