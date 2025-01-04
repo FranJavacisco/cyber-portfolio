@@ -81,7 +81,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 Francisco A. Lopez - [@tu_LinkedIn](https://www.linkedin.com/in/francisco-lopez-cl/) - panchodev2024@gmail.com
 
-Link del Proyecto: [https://github.com/tu-usuario/cyber-portfolio](https://github.com/tu-usuario/cyber-portfolio)
+Link del Proyecto: [https://github.com/tu-usuario/cyber-portfolio]( https://franjavacisco.github.io/cyber-portfolio/)
 
 ## 🙏 Agradecimientos
 
